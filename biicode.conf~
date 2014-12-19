@@ -1,0 +1,19 @@
+# Biicode configuration file migrated from old config files
+
+[requirements]
+
+[parent]
+	# This file contains your block ancestors versions
+	* amalulla/cpp-expression-parser: 2
+
+[paths]
+
+[dependencies]
+
+[mains]
+
+[hooks]
+
+[includes]
+
+[data]
