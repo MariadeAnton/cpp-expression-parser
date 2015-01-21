@@ -1,12 +1,13 @@
 # C++ expression parsing
-[![Build Status](https://travis-ci.org/MariadeAnton/cpp-expression-parser.svg?branch=master)](https://travis-ci.org/MariadeAnton/cpp-expression-parser)
-The [biicode block](http://www.biicode.com/amalulla/amalulla/cpp-expression-parser/master) has been automatically published from the [forked github repo](https://github.com/bamos/cpp-expression-parser) .It includes slight modifications added to the original repository: [bamos/cpp-expression-parser](https://github.com/bamos/cpp-expression-parser) in order to work properly with biicode.
+[![Build status](https://ci.appveyor.com/api/projects/status/rx9nqxur2goe1ny9/branch/master?svg=true)](https://ci.appveyor.com/project/MariadeAnton/cpp-expression-parser/branch/master)
+
+The [biicode block](http://www.biicode.com/amalulla/amalulla/cpp-expression-parser/master) has been automatically published via AppVeyor from the [forked github repo](https://github.com/bamos/cpp-expression-parser) .It includes a CMakeListst.txt and a biicode.conf files added to the original repository: [bamos/cpp-expression-parser](https://github.com/bamos/cpp-expression-parser) in order to work properly with biicode.
 
 To use it in biicode include:
 
       #include "amalulla/cpp-expression-parser/shunting-yard.h"
 
-Check out an example on how to use [cpp-expression-parser](http://www.biicode.com/examples/examples/expression_parser/master). Or a more detailed guide on [biicode docs] (http://docs.biicode.com/c++/examples/expression-parser.html)
+Check out an example on how to use [cpp-expression-parser](http://www.biicode.com/examples/examples/expression_parser/master). Or a more detailed guide on [biicode docs](http://docs.biicode.com/c++/examples/expression-parser.html)
 
 # C++ expression parsing.
 A simple form of mathematical expression parsing can take a string such

@@ -1,0 +1,49 @@
+version: 1.0.{build}
+
+install:
+  - ps: wget https://s3.amazonaws.com/biibinaries/thirdparty/cmake-3.0.2-win32-x86.zip -OutFile cmake.zip
+  - cmd: echo "Unzipping cmake..."
+  - cmd: 7z x cmake.zip -o"C:\Program Files (x86)\" -y > nul
+  - cmd: set PATH=%PATH:CMake 2.8\bin=%;C:\Program Files (x86)\cmake-3.0.2-win32-x86\bin
+  - cmd: cmake --version
+  - cmd: echo "Downloading biicode..."
+  - ps: wget http://www.biicode.com/downloads/latest/win -OutFile bii-win.exe
+  - cmd: bii-win.exe /VERYSILENT
+  - cmd: set PATH=%PATH%;C:\Program Files (x86)\BiiCode\bii
+  - cmd: bii -v
+  - cmd: del bii-win.exe
+  - cmd: del cmake.zip
+
+before_build:
+  - cmd: bii init %project_name%
+  - cmd: cd %project_name%
+  - cmd: bii new %block_user%/%block_name%
+    # move the files
+  - cmd: for %%i in (../*) do if %%i NEQ "%project_name%" move "..\%%i" blocks\%block_user%\%block_name%\
+  # move the directories -> there are none in this repo:
+  # cmd: for /d %%i in (../*) do if %%i NEQ "%project_name%" move "..\%%i" blocks\%block_user%\%block_name%\
+  - cmd: bii cpp:configure -G "Visual Studio 12"
+
+build_script:
+  - cmd: bii cpp:build
+
+test_script:
+  - cmd: cd bin
+  - cmd: amalulla_cpp-expression-parser_test-shunting-yard.exe
+
+# to run your custom scripts instead of provider deployments
+deploy_script:
+  - cmd: bii user %block_user% -p %secured_passwd%
+  - cmd: bii publish --tag=%tag% --versiontag=APPVEYOR_REPO_TAG_NAME || dir # Ignore output
+
+environment:
+  project_name:
+    "myproject"
+  block_user:
+    "amalulla"
+  block_name:
+    "cpp-expression-parser"
+  secured_passwd:
+    secure: ZMvgETfLAUo7kISnvrinBA==
+  tag:
+    "STABLE"
