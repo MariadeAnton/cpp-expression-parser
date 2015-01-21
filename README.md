@@ -1,7 +1,7 @@
 # C++ expression parsing
 [![Build status](https://ci.appveyor.com/api/projects/status/rx9nqxur2goe1ny9/branch/master?svg=true)](https://ci.appveyor.com/project/MariadeAnton/cpp-expression-parser/branch/master)
 
-The [biicode block](http://www.biicode.com/amalulla/amalulla/cpp-expression-parser/master) has been automatically published via AppVeyor from the [forked github repo](https://github.com/bamos/cpp-expression-parser) .It includes a CMakeListst.txt and a biicode.conf files added to the original repository: [bamos/cpp-expression-parser](https://github.com/bamos/cpp-expression-parser) in order to work properly with biicode.
+The [biicode block](http://www.biicode.com/amalulla/amalulla/cpp-expression-parser/master) has been automatically published via [AppVeyor](https://ci.appveyor.com/) from the [forked github repo](https://github.com/bamos/cpp-expression-parser) .It includes a CMakeListst.txt and a biicode.conf files added to the original repository: [bamos/cpp-expression-parser](https://github.com/bamos/cpp-expression-parser) in order to work properly with biicode.
 
 To use it in biicode include:
 
