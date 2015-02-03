@@ -15,13 +15,12 @@ install:
   - cmd: del cmake.zip
 
 before_build:
+  - cmd: cd %temp%
   - cmd: bii init %project_name%
   - cmd: cd %project_name%
   - cmd: bii new %block_user%/%block_name%
-    # move the files
-  - cmd: for %%i in (../*) do if %%i NEQ "%project_name%" move "..\%%i" blocks\%block_user%\%block_name%\
-  # move the directories -> there are none in this repo:
-  # cmd: for /d %%i in (../*) do if %%i NEQ "%project_name%" move "..\%%i" blocks\%block_user%\%block_name%\
+    # copy the files
+  - cmd: xcopy "%APPVEYOR_BUILD_FOLDER%" blocks\%block_user%\%block_name%\ /e
   - cmd: bii cpp:configure -G "Visual Studio 12"
 
 build_script:
