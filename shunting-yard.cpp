@@ -6,6 +6,7 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
+#include <math.h>
 
 #include "shunting-yard.h"
 
@@ -135,6 +136,7 @@ double calculator::calculate(const char* expr,
   opPrecedence["<<"] = 1; opPrecedence[">>"] = 1;
   opPrecedence["+"]  = 2; opPrecedence["-"]  = 2;
   opPrecedence["*"]  = 3; opPrecedence["/"]  = 3;
+  opPrecedence["^"] = 4;
 
   // 2. Convert to RPN with Dijkstra's Shunting-yard algorithm.
   TokenQueue_t rpn = toRPN(expr, vars, opPrecedence);
@@ -164,6 +166,8 @@ double calculator::calculate(const char* expr,
         evaluation.push(left / right);
       } else if (!str.compare("<<")) {
         evaluation.push((int) left << (int) right);
+      } else if (!str.compare("^")) {
+        evaluation.push(pow(left, right));
       } else if (!str.compare(">>")) {
         evaluation.push((int) left >> (int) right);
       } else {

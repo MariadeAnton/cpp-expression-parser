@@ -1,4 +1,8 @@
-# C++ expression parsing.
+
+# C++ expression parsing
+
+- Win Visual Studio 12: [![Build status](https://ci.appveyor.com/api/projects/status/rx9nqxur2goe1ny9/branch/master?svg=true)](https://ci.appveyor.com/project/MariadeAnton/cpp-expression-parser/branch/master)
+
 A simple form of mathematical expression parsing can take a string such
 as `-pi+1` on input and output `-2.14`.
 This post presents a C++ library to parse a character sequence
@@ -6,8 +10,15 @@ as an expression using Dijkstra's
 [Shunting-yard algorithm](http://en.wikipedia.org/wiki/Shunting-yard_algorithm),
 which modifies
 [Jesse Brown's code](http://www.daniweb.com/software-development/cpp/code/427500/calculator-using-shunting-yard-algorithm).
-The library is available in open source from
-[bamos/cpp-expression-parser](https://github.com/bamos/cpp-expression-parser).
+The library is available on [biicode](http://www.biicode.com/amalulla/amalulla/cpp-expression-parser/master).[![Build Status](https://webapi.biicode.com/v1/badges/amalulla/amalulla/cpp-expression-parser/master)](https://www.biicode.com/amalulla/cpp-expression-parser) 
+The [biicode block](http://www.biicode.com/amalulla/amalulla/cpp-expression-parser/master) has been automatically published via [AppVeyor](https://ci.appveyor.com/) from the [forked github repo](https://github.com/bamos/cpp-expression-parser). It includes a CMakeListst.txt and a biicode.conf files added to the original repository: [bamos/cpp-expression-parser](https://github.com/bamos/cpp-expression-parser) in order to work properly with biicode.
+
+To use it in biicode include:
+
+      #include "amalulla/cpp-expression-parser/shunting-yard.h"
+
+Check out an example on how to use [cpp-expression-parser](http://www.biicode.com/examples/examples/expression_parser/master). Or a more detailed guide on [biicode docs](http://docs.biicode.com/c++/examples/expression-parser.html)
+
 
 # Minimal example.
 
@@ -66,7 +77,7 @@ TokenQueue_t calculator::toRPN(const char* expr,
       // If the function is a variable, resolve it and
       // add the parsed number to the output queue.
     } else {
-      // Otherwise, the variable is an operator or paranthesis.
+      // Otherwise, the variable is an operator or parenthesis.
       switch (*expr) {
         case '(':
           operatorStack.push("(");
