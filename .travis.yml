@@ -1,7 +1,6 @@
 language: cpp
 compiler:
 - gcc
-- clang
 
 install:
 - if [ "$CXX" == "g++" ]; then sudo apt-get install -qq g++-4.8; fi
