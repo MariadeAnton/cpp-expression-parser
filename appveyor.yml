@@ -1,5 +1,9 @@
 version: 1.0.{build}
 
+configuration:
+  - Debug
+  - Release
+
 install:
   - ps: wget https://s3.amazonaws.com/biibinaries/thirdparty/cmake-3.0.2-win32-x86.zip -OutFile cmake.zip
   - cmd: echo "Unzipping cmake..."
@@ -21,8 +25,7 @@ before_build:
   - cmd: bii new %block_user%/%block_name%
     # copy files and folders
   - cmd: xcopy "%APPVEYOR_BUILD_FOLDER%" blocks\%block_user%\%block_name%\ /e
-  - cmd: bii cpp:configure -G "Visual Studio 12"
-
+  - cmd: bii cpp:configure -G "%generator%" -DCMAKE_BUILD_TYPE="%configuration%" || bii cpp:configure -G "%generator%" -DCMAKE_BUILD_TYPE="%configuration%"
 build_script:
   - cmd: bii cpp:build
 
@@ -38,4 +41,6 @@ environment:
     "amalulla"
   block_name:
     "cpp-expression-parser"
- 
+  matrix:
+    - generator: "MinGW Makefiles"
+    - generator: "Visual Studio 12"
