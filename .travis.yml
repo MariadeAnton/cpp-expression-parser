@@ -29,7 +29,7 @@ script:
 ##################### CHANGE WITH YOUR CUSTOM CHECKS OR TEST EXECUTION ##################
 - ls ./bin/amalulla_cpp-expression-parser_test-shunting-yard
 #########################################################################################
-a
+
 env:
   global:
   - BLOCK_NAME=docker_client
