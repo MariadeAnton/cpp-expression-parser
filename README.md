@@ -1,8 +1,6 @@
 
 # C++ expression parsing
 
-- Win Visual Studio 12: [![Build status](https://ci.appveyor.com/api/projects/status/rx9nqxur2goe1ny9/branch/master?svg=true)](https://ci.appveyor.com/project/MariadeAnton/cpp-expression-parser/branch/master)
-
 A simple form of mathematical expression parsing can take a string such
 as `-pi+1` on input and output `-2.14`.
 This post presents a C++ library to parse a character sequence
@@ -19,6 +17,11 @@ To use it in biicode include:
 
 Check out an example on how to use [cpp-expression-parser](http://www.biicode.com/examples/examples/expression_parser/master). Or a more detailed guide on [biicode docs](http://docs.biicode.com/c++/examples/expression-parser.html)
 
+# Using AppVeyor CI and Deploy for Windows
+
+[master branch automatically publishes to biicode via Appveyor.](http://blog.biicode.com/appveyor-ci-windows-biicode/) 
+
+- Win Visual Studio 12: [![Build status](https://ci.appveyor.com/api/projects/status/rx9nqxur2goe1ny9/branch/master?svg=true)](https://ci.appveyor.com/project/MariadeAnton/cpp-expression-parser/branch/master)
 
 # Minimal example.
 
